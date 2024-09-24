@@ -1,0 +1,11 @@
+.sidebar-wrapper {
+  --navbar-width: 212px;
+  min-width: var(--navbar-width);
+  padding: 20px 16px;
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid var(--black-10, rgba(28, 28, 28, 0.1));
+}
