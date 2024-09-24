@@ -1,0 +1,15 @@
+.quick-options-trigger {
+  height: 28px;
+  border-radius: var(--gap-md);
+  padding: 4px 8px;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  outline: none;
+
+  color: rgba(28, 28, 28, 0.2);
+}
+
+.quick-options-trigger[data-state="active"] {
+  color: rgba(28, 28, 28, 0.4);
+}

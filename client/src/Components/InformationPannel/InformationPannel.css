@@ -1,5 +1,5 @@
 .notification-pane-wrapper {
-  width: 280px;
+  min-width: 280px;
   padding: var(--gap-2xl);
   border-left: 1px solid var(--black-10, rgba(28, 28, 28, 0.1));
   display: flex;
