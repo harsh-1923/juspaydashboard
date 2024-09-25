@@ -10,6 +10,7 @@ const DashboardNavbar = () => {
       <QuickOptions />
       <Link to="/account">Account</Link>
       <Link to="/order">Order</Link>
+      <Link to="/default">Default</Link>
     </nav>
   );
 };

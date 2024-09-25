@@ -3,16 +3,19 @@ import "./App.css";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "./Context/ThemeContext";
 
 function App() {
   return (
-    <main className="app">
-      <Routes>
-        <Route path="/*" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-      <Toaster />
-    </main>
+    <ThemeProvider>
+      <main className="app">
+        <Routes>
+          <Route path="/*" element={<Dashboard />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+        <Toaster />
+      </main>
+    </ThemeProvider>
   );
 }
 

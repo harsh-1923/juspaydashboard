@@ -3,7 +3,7 @@
   height: 100vh;
   overflow-y: auto;
   padding: var(--gap-2xl);
-  border-left: 1px solid var(--black-10, rgba(28, 28, 28, 0.1));
+  border-left: 1px solid var(--info-pannel-border-color);
   display: flex;
   flex-direction: column;
   gap: 24px;

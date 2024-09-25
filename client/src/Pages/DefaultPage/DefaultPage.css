@@ -1,0 +1,32 @@
+.default-page-header-wrapper {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--gap-xl);
+}
+
+.default-page-header-wrapper > h2 {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  padding: var(--gap-xs) var(--gap-md);
+}
+
+.default-page-content-wrapper {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.default-page-quick-metrics-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.default-page-quick-metrics {
+  display: flex;
+  gap: 28px;
+}

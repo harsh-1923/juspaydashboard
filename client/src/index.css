@@ -15,6 +15,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  --info-pannel-border-color: rgba(28, 28, 28, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="dark"] {
+  --info-pannel-border-color: red;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: rgba(28, 28, 28, 1);
+  color: #ffffff;
+}
+
 :root {
   --gap-xs: 4px;
   --gap-md: 8px;

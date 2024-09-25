@@ -5,6 +5,7 @@ import Refresh from "../IconSet/Refresh";
 import Sidebar from "../IconSet/Sidebar";
 import Star from "../IconSet/Star";
 import Sun from "../IconSet/Sun";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import "./DashboardInfobar.css";
 
 const DashboardInfobar: React.FC = () => {
@@ -28,12 +29,13 @@ const DashboardInfobar: React.FC = () => {
 
       <div className="infobar-section">
         <DashboardSearch />
-        <button
+        {/* <button
           className="dashboard-infobar-button"
           aria-label="Toggle Dark Mode"
         >
           <Sun />
-        </button>
+        </button> */}
+        <ThemeSwitcher />
         <button
           className="dashboard-infobar-button"
           aria-label="Refresh Dashboard"
