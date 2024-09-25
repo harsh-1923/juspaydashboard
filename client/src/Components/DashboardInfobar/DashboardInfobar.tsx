@@ -4,7 +4,6 @@ import BellIcon from "../IconSet/BellIcon";
 import Refresh from "../IconSet/Refresh";
 import Sidebar from "../IconSet/Sidebar";
 import Star from "../IconSet/Star";
-import Sun from "../IconSet/Sun";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import "./DashboardInfobar.css";
 
