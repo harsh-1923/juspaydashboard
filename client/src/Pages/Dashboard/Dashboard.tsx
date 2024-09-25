@@ -8,9 +8,9 @@ import DashboardInfobar from "../../Components/DashboardInfobar/DashboardInfobar
 import { useState } from "react";
 
 const Dashboard = () => {
-  const [dashboardLayoutSettings, setDashboardLayoutSettings] = useState({
-    showInformationPannel: true,
-  });
+  // const [dashboardLayoutSettings, setDashboardLayoutSettings] = useState({
+  //   showInformationPannel: true,
+  // });
   return (
     <div className="dashboard-wrapper">
       <DashboardNavbar />
@@ -23,7 +23,8 @@ const Dashboard = () => {
           </Routes>
         </section>
       </div>
-      {dashboardLayoutSettings.showInformationPannel && <InformationPannel />}
+      {/* {dashboardLayoutSettings.showInformationPannel && <InformationPannel />} */}
+      <InformationPannel />
     </div>
   );
 };
