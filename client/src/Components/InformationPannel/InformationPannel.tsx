@@ -1,11 +1,14 @@
-import ContactBook from "../ContactBook/ContactBook";
+import Activities from "../Activities/Activities";
+import Contacts from "../Contacts/Contacts";
+import Notifications from "../Notifications/Notifications";
 import "./InformationPannel.css";
 
 const InformationPannel = () => {
   return (
     <div className="notification-pane-wrapper">
-      <h2 className="notification-panel-header">Notifications</h2>
-      <ContactBook />
+      <Notifications />
+      <Activities />
+      <Contacts />
     </div>
   );
 };

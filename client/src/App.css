@@ -5,3 +5,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.ellipsis-clip {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
