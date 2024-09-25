@@ -17,7 +17,6 @@ const UserAvatar = ({
   return (
     <Avatar.Root
       className="user-avatar-wrapper"
-      aria-label={`Avatar for ${username}`}
       style={{ width: size, height: size }}
     >
       <Avatar.Image

@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-size: 14px;
   font-weight: 400;
@@ -49,4 +49,11 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:focus-visible {
+  outline: 1px solid rgb(43, 149, 236);
 }

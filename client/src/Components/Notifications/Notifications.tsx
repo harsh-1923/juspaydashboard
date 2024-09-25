@@ -69,18 +69,8 @@ const Notification: React.FC<NotificationProps> = ({
         {icon}
       </div>
       <div className="notification-details">
-        <p
-          className="notification-title ellipsis-clip"
-          aria-label={`Notification: ${title}`}
-        >
-          {title}
-        </p>
-        <p
-          className="notification-timestamp"
-          aria-label={`Received ${formatElapsedTime(timestamp)}`}
-        >
-          {formatElapsedTime(timestamp)}
-        </p>
+        <p className="notification-title ellipsis-clip">{title}</p>
+        <p className="notification-timestamp">{formatElapsedTime(timestamp)}</p>
       </div>
     </li>
   );

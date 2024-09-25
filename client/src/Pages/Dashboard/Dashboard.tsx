@@ -5,8 +5,12 @@ import AccountPage from "../AccountPage/AccountPage";
 import Orders from "../Orders/Orders";
 import InformationPannel from "../../Components/InformationPannel/InformationPannel";
 import DashboardInfobar from "../../Components/DashboardInfobar/DashboardInfobar";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const [dashboardLayoutSettings, setDashboardLayoutSettings] = useState({
+    showInformationPannel: true,
+  });
   return (
     <div className="dashboard-wrapper">
       <DashboardNavbar />
@@ -19,7 +23,7 @@ const Dashboard = () => {
           </Routes>
         </section>
       </div>
-      <InformationPannel />
+      {dashboardLayoutSettings.showInformationPannel && <InformationPannel />}
     </div>
   );
 };

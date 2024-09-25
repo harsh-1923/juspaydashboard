@@ -78,15 +78,8 @@ const Activity: React.FC<ActivityProps> = ({ title, timestamp, src }) => {
         <span className="activity-bar" aria-hidden="true"></span>
       </div>
       <div className="activity-details">
-        <p className="activity-title ellipsis-clip" aria-label={title}>
-          {title}
-        </p>
-        <p
-          className="activity-timestamp"
-          aria-label={`Elapsed time: ${formatElapsedTime(timestamp)}`}
-        >
-          {formatElapsedTime(timestamp)}
-        </p>
+        <p className="activity-title ellipsis-clip">{title}</p>
+        <p className="activity-timestamp">{formatElapsedTime(timestamp)}</p>
       </div>
     </li>
   );
