@@ -106,6 +106,19 @@ button:focus-visible {
   fill: black;
 }
 
+.search-icon {
+  fill: var(--black-20, rgba(28, 28, 28, 0.4));
+}
+.dark .search-icon {
+  fill: var(--black-20, rgba(255, 255, 255, 0.5));
+}
+
+.dark .toast {
+  background: rgb(43, 42, 42);
+  color: white;
+  border: 1px solid rgb(87, 79, 79);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

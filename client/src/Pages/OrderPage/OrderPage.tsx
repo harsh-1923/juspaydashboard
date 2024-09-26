@@ -6,6 +6,8 @@ import "./OrderPage.css";
 import Sort from "../../Components/IconSet/Sort";
 import Plus from "../../Components/IconSet/Plus";
 import Filter from "../../Components/IconSet/Filter";
+import Search from "@/Components/IconSet/Search";
+import { toast } from "sonner";
 
 interface StatusParserProps {
   status: Status;
@@ -210,11 +212,13 @@ const OrderTable = () => {
 
   // Filter orderDetails based on searchTerm
   const filteredOrderDetails = orderDetails.filter((order) => {
+    const statusText = JSON.parse(order.status).text.toLowerCase();
     return (
       order.orderID.toLowerCase().includes(searchTerm.toLowerCase()) ||
       order.contact.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
       order.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.address.toLowerCase().includes(searchTerm.toLowerCase())
+      order.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      statusText.includes(searchTerm.toLowerCase())
     );
   });
 
@@ -247,10 +251,16 @@ const OrderTable = () => {
     <>
       <div className="table-options-wrapper">
         <div>
-          <button onClick={handleSort} className="table-options-button">
+          <button
+            onClick={() => toast.success("Add Order Flow triggered")}
+            className="table-options-button"
+          >
             <Plus />
           </button>
-          <button onClick={handleSort} className="table-options-button">
+          <button
+            onClick={() => toast.success("Filter Menu Flow triggered")}
+            className="table-options-button"
+          >
             <Filter />
           </button>
           <button onClick={handleSort} className="table-options-button">
@@ -262,6 +272,7 @@ const OrderTable = () => {
           className="order-search-form"
           onSubmit={handleSubmit}
         >
+          <Search />
           <input
             type="search"
             id="search"
@@ -269,7 +280,7 @@ const OrderTable = () => {
             aria-label="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          ></input>
         </form>
       </div>
       <table className="order-table-root">

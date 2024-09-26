@@ -13,7 +13,7 @@ function App() {
           <Route path="/*" element={<Dashboard />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
-        <Toaster />
+        <Toaster toastOptions={{ className: "toast" }} />
       </main>
     </ThemeProvider>
   );
