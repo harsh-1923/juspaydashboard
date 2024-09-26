@@ -28,12 +28,6 @@ const DashboardInfobar: React.FC = () => {
 
       <div className="infobar-section">
         <DashboardSearch />
-        {/* <button
-          className="dashboard-infobar-button"
-          aria-label="Toggle Dark Mode"
-        >
-          <Sun />
-        </button> */}
         <ThemeSwitcher />
         <button
           className="dashboard-infobar-button"

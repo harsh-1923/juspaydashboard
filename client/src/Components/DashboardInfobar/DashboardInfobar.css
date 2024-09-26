@@ -9,6 +9,10 @@
   border-bottom: 1px solid rgba(28, 28, 28, 0.1);
 }
 
+.dark .dashboard-infobar-wrapper {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .dashboard-infobar-wrapper > div {
   display: flex;
   align-items: center;
@@ -25,4 +29,9 @@
 .dashboard-infobar-button:hover,
 :focus-visible {
   background-color: rgba(1, 1, 1, 0.1);
+}
+
+.dark .dashboard-infobar-button:hover,
+:focus-visible {
+  background: var(--black-5, rgba(255, 255, 255, 0.1));
 }

@@ -4,7 +4,7 @@ import "./DefaultPage.css";
 const DefaultPage = () => {
   return (
     <div className="">
-      <div className="default-page-header-wrapper">
+      <div className="dashboard-page-header-wrapper">
         <h2>eCommerce</h2>
       </div>
       <div className="default-page-content-wrapper">

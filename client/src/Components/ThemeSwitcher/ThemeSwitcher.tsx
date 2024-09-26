@@ -1,4 +1,6 @@
 import { useTheme } from "../../Context/ThemeContext";
+import Moon from "../IconSet/Moon";
+import Sun from "../IconSet/Sun";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
@@ -9,7 +11,21 @@ const ThemeSwitcher = () => {
       aria-label="Switch Theme"
       className="dashborad-infobar-button"
     >
-      {theme === "light" ? "L" : "D"}
+      {theme === "light" ? (
+        <button
+          className="dashboard-infobar-button"
+          aria-label="Toggle Dark Mode"
+        >
+          <Moon />
+        </button>
+      ) : (
+        <button
+          className="dashboard-infobar-button"
+          aria-label="Toggle Dark Mode"
+        >
+          <Sun />
+        </button>
+      )}
     </button>
   );
 };

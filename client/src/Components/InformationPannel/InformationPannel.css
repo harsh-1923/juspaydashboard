@@ -7,6 +7,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: grey transparent;
+}
+
+.dark .notification-pane-wrapper {
+  border-left: 1px solid var(--black-10, rgba(255, 255, 255, 0.1));
 }
 
 .notification-panel-header {

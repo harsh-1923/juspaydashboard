@@ -9,8 +9,8 @@ const DashboardNavbar = () => {
       <UserDetails />
       <QuickOptions />
       <Link to="/account">Account</Link>
-      <Link to="/order">Order</Link>
       <Link to="/default">Default</Link>
+      <Link to="/order">Order</Link>
     </nav>
   );
 };

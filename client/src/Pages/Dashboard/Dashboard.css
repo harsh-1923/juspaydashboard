@@ -15,4 +15,6 @@
   height: calc(100vh - 68px);
   padding: 28px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: grey transparent;
 }

@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.dark .activity-bar {
+  background: var(--black-10, rgba(255, 255, 255, 0.1));
+}
+
 .activity-avatar {
   width: 24px;
   height: 24px;
@@ -52,4 +56,8 @@
   line-height: 18px;
   text-align: left;
   color: rgba(28, 28, 28, 0.4);
+}
+
+.dark .activity-timestamp {
+  color: var(--black-40, rgba(255, 255, 255, 0.4));
 }

@@ -1,11 +1,11 @@
-.default-page-header-wrapper {
+.dashboard-page-header-wrapper {
   height: 28px;
   display: flex;
   align-items: center;
   margin-bottom: var(--gap-xl);
 }
 
-.default-page-header-wrapper > h2 {
+.dashboard-page-header-wrapper > h2 {
   font-family: Inter;
   font-size: 14px;
   font-weight: 600;

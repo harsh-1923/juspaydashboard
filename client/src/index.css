@@ -76,3 +76,11 @@ button {
 button:focus-visible {
   outline: 1px solid rgb(43, 149, 236);
 }
+
+.dark .svg-icon {
+  fill: white;
+}
+
+.light .svg-icon {
+  fill: black;
+}

@@ -38,7 +38,7 @@ const Contacts: React.FC = () => {
   );
 };
 
-const Contact: React.FC<ContactProps> = ({ name, src }) => {
+export const Contact: React.FC<ContactProps> = ({ name, src }) => {
   return (
     <li className="contact-wrapper" role="listitem">
       <UserAvatar src={src} username={name} />
