@@ -12,19 +12,13 @@ const ThemeSwitcher = () => {
       className="dashborad-infobar-button"
     >
       {theme === "light" ? (
-        <button
-          className="dashboard-infobar-button"
-          aria-label="Toggle Dark Mode"
-        >
+        <div className="dashboard-infobar-button" aria-label="Toggle Dark Mode">
           <Moon />
-        </button>
+        </div>
       ) : (
-        <button
-          className="dashboard-infobar-button"
-          aria-label="Toggle Dark Mode"
-        >
+        <div className="dashboard-infobar-button" aria-label="Toggle Dark Mode">
           <Sun />
-        </button>
+        </div>
       )}
     </button>
   );

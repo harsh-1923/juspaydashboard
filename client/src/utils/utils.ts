@@ -52,4 +52,13 @@ function getInitials(name: string): string {
   return initials;
 }
 
-export { formatElapsedTime, getInitials };
+function capitalizeWords(str: string): string {
+  return str
+    .split(" ")
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" ");
+}
+
+export { formatElapsedTime, getInitials, capitalizeWords };

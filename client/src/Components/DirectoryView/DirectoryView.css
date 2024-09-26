@@ -1,0 +1,61 @@
+.directory-root {
+  width: 100%;
+  overflow: hidden;
+}
+
+.directory-folder {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  width: 100%;
+  cursor: pointer;
+  height: 32px;
+  padding: 4px;
+}
+
+.directory-folder > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+.directory-folder-details {
+  display: flex;
+  align-items: center;
+}
+
+.directory-content {
+  padding-left: 32px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.directory-content[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+
+.directory-content[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
+}

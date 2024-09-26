@@ -1,22 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom"; // or use "next/link" for Next.js
-import "./Breadcrumb.css"; // Optional CSS for styling
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Breadcrumb.css";
+import { capitalizeWords } from "../../utils/utils";
 
 interface BreadcrumbProps {
-  separator?: string; // Optional separator, default is ">"
+  separator?: string;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ separator = ">" }) => {
-  // Get the current path from the URL and split it into parts
-  const pathnames = window.location.pathname.split("/").filter((x) => x);
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ separator = "/" }) => {
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
-  // Dynamically create breadcrumb links based on the pathnames
+  useEffect(() => {
+    console.log("Breadcrumb rendered");
+  }, []);
+
   return (
     <nav aria-label="Breadcrumb">
       <ol className="breadcrumb-list">
         <li className="breadcrumb-item">
-          <Link to="/" className="breadcrumb-link">
-            Home
+          <Link to="/" className="breadcrumb-link breadcrumb-base">
+            Dashboard
           </Link>
           {pathnames.length > 0 && (
             <span className="breadcrumb-separator">{separator}</span>
@@ -30,10 +34,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ separator = ">" }) => {
             <li key={routeTo} className="breadcrumb-item">
               {!isLast ? (
                 <Link to={routeTo} className="breadcrumb-link">
-                  {decodeURIComponent(name)}
+                  {capitalizeWords(decodeURIComponent(name))}
                 </Link>
               ) : (
-                <span aria-current="page">{decodeURIComponent(name)}</span>
+                <span aria-current="page">
+                  {capitalizeWords(decodeURIComponent(name))}
+                </span>
               )}
               {!isLast && (
                 <span className="breadcrumb-separator">{separator}</span>

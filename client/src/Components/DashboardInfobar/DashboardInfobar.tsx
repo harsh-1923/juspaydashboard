@@ -1,3 +1,4 @@
+import { useDashboardContext } from "../../Context/DashboardContext";
 import Breadcrumb from "../Breadcrumbs/Breadcrumbs";
 import DashboardSearch from "../DashboardSearch/DashboardSearch";
 import BellIcon from "../IconSet/BellIcon";
@@ -8,6 +9,14 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import "./DashboardInfobar.css";
 
 const DashboardInfobar: React.FC = () => {
+  const { dashboardSettings, setDashboardSettings } = useDashboardContext(); // Get the context values
+
+  const toggleInfoPannel = () => {
+    setDashboardSettings({
+      ...dashboardSettings,
+      showInfoPannel: !dashboardSettings.showInfoPannel, // Toggle the value
+    });
+  };
   return (
     <nav className="dashboard-infobar-wrapper" aria-label="Dashboard Info Bar">
       <div className="infobar-section">
@@ -41,6 +50,7 @@ const DashboardInfobar: React.FC = () => {
         <button
           className="dashboard-infobar-button"
           aria-label="Toggle Sidebar"
+          onClick={() => toggleInfoPannel()}
         >
           <Sidebar />
         </button>

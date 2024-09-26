@@ -1,40 +1,44 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
-interface DashboardContextProps {
-  dashboardLayoutSettings: {
-    showInformationPannel: boolean;
-  };
-  setDashboardLayoutSettings: React.Dispatch<
-    React.SetStateAction<{
-      showInformationPannel: boolean;
-    }>
-  >;
+interface DashboardContextType {
+  dashboardSettings: DashboardSettings;
+  setDashboardSettings: (settings: DashboardSettings) => void;
 }
 
-const DashboardContext = createContext<DashboardContextProps | undefined>(
-  undefined
-);
+interface DashboardSettings {
+  showInfoPannel: boolean;
+}
 
-export const useDashboardContext = () => {
-  const context = useContext(DashboardContext);
-  if (!context) {
-    throw new Error(
-      "useDashboardContext must be used within a DashboardProvider"
-    );
-  }
-  return context;
+const defaultContextValue: DashboardContextType = {
+  dashboardSettings: {
+    showInfoPannel: true,
+  },
+  setDashboardSettings: () => {},
 };
 
-export const DashboardProvider: React.FC = ({ children }: any) => {
-  const [dashboardLayoutSettings, setDashboardLayoutSettings] = useState({
-    showInformationPannel: true,
-  });
+const DashboardContext =
+  createContext<DashboardContextType>(defaultContextValue);
+
+export const DashboardProvider = ({ children }: { children: ReactNode }) => {
+  const [dashboardSettings, setDashboardSettings] = useState<DashboardSettings>(
+    {
+      showInfoPannel: true,
+    }
+  );
+
+  const value = {
+    dashboardSettings,
+    setDashboardSettings,
+  };
 
   return (
-    <DashboardContext.Provider
-      value={{ dashboardLayoutSettings, setDashboardLayoutSettings }}
-    >
+    <DashboardContext.Provider value={value}>
       {children}
     </DashboardContext.Provider>
   );
+};
+
+// Custom hook to use the DashboardContext
+export const useDashboardContext = (): DashboardContextType => {
+  return useContext(DashboardContext);
 };

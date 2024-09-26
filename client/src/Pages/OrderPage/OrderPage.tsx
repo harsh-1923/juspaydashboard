@@ -32,7 +32,7 @@ const orderDetails = [
     status: Status.InProgress,
   },
   {
-    orderID: "#CM982",
+    orderID: "#CM932",
     contact: {
       username: "Kate Morrison",
       profileUrl: "/images/ContactImages/KateMorrison.png",

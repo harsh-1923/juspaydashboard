@@ -6,12 +6,14 @@ import InformationPannel from "../../Components/InformationPannel/InformationPan
 import DashboardInfobar from "../../Components/DashboardInfobar/DashboardInfobar";
 import DefaultPage from "../DefaultPage/DefaultPage";
 import OrderPage from "../OrderPage/OrderPage";
-// import { useState } from "react";
+import {
+  DashboardProvider,
+  useDashboardContext,
+} from "../../Context/DashboardContext";
 
 const Dashboard = () => {
-  // const [dashboardLayoutSettings, setDashboardLayoutSettings] = useState({
-  //   showInformationPannel: true,
-  // });
+  const { dashboardSettings } = useDashboardContext();
+
   return (
     <div className="dashboard-wrapper">
       <DashboardNavbar />
@@ -25,10 +27,17 @@ const Dashboard = () => {
           </Routes>
         </section>
       </div>
-      {/* {dashboardLayoutSettings.showInformationPannel && <InformationPannel />} */}
-      <InformationPannel />
+      {dashboardSettings.showInfoPannel && <InformationPannel />}
     </div>
   );
 };
 
-export default Dashboard;
+const DashboardWrapper = () => {
+  return (
+    <DashboardProvider>
+      <Dashboard />
+    </DashboardProvider>
+  );
+};
+
+export default DashboardWrapper;

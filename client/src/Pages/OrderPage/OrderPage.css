@@ -45,7 +45,7 @@ td {
   border-radius: 2px;
   outline: 1px solid rgba(28, 28, 28, 0.2);
   transition: background-color 0.3s ease;
-  margin-left: 4px;
+  margin: 4px 0 0 4px;
 }
 
 .dark .order-table-checkbox {
