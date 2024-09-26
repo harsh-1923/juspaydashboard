@@ -2,6 +2,8 @@ import "./DirectoryView.css";
 import React from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronRight } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface SubItem {
   name: string;
@@ -12,19 +14,42 @@ interface DirectoryItem {
   name: string;
   icon: JSX.Element;
   subs: SubItem[];
+  link?: string;
 }
 
 interface DirectoryViewProps {
   directory: DirectoryItem[];
+  singleView?: boolean;
 }
 
-const DirectoryView: React.FC<DirectoryViewProps> = ({ directory }) => {
+const DirectoryView: React.FC<DirectoryViewProps> = ({
+  directory,
+  singleView = true,
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = (item: DirectoryItem) => {
+    if (item.subs.length > 0 || !item.link || item.link === "") {
+      toast("Action Triggered");
+      return;
+    }
+    console.log(item.link);
+    navigate(item.link);
+  };
   const renderDirectory = (items: DirectoryItem[]) => {
     return (
-      <Accordion.Root type="multiple">
+      <Accordion.Root type={singleView ? "single" : "multiple"}>
         {items.map((item) => (
           <Accordion.Item key={item.name} value={item.name}>
-            <Accordion.Trigger className="directory-folder">
+            <Accordion.Trigger
+              className="directory-folder"
+              data-dir-active={
+                item.link && useLocation().pathname.includes(item.link)
+                  ? "true"
+                  : "false"
+              }
+              onClick={() => handleClick(item)}
+            >
               <div className="directory-chevron-wrapper">
                 {item.subs.length > 0 && <ChevronRight size={14} />}
               </div>
@@ -33,9 +58,9 @@ const DirectoryView: React.FC<DirectoryViewProps> = ({ directory }) => {
             </Accordion.Trigger>
             <Accordion.Content className="directory-content">
               {item.subs.map((sub) => (
-                <div key={sub.name} className="directory-folder">
+                <button key={sub.name} className="directory-folder">
                   {sub.name}
-                </div>
+                </button>
               ))}
             </Accordion.Content>
           </Accordion.Item>

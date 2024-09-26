@@ -9,6 +9,23 @@
   gap: var(--gap-md);
   align-items: start;
   justify-content: flex-start;
+  color: rgba(28, 28, 28, 1);
+}
+
+.tile-style-1 {
+  background: var(--Primary-Blue, rgba(227, 245, 255, 1)) !important;
+}
+
+.tile-style-3 {
+  background: var(--Primary-Purple, rgba(229, 236, 246, 1)) !important;
+}
+
+.tile-style-2 {
+  background: var(--Primary-Light, rgba(247, 249, 251, 1)) !important;
+}
+.dark .tile-style-2 {
+  background: var(--Primary-Light, rgba(255, 255, 255, 0.05)) !important;
+  color: white;
 }
 
 .metric-tile-details-wrapper {

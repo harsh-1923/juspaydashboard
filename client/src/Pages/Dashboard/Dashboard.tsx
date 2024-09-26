@@ -16,13 +16,13 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-wrapper">
-      <DashboardNavbar />
+      {dashboardSettings.showSideBar && <DashboardNavbar />}
       <div className="dashboard-content-wrapper">
         <DashboardInfobar />
         <section className="dashboard-main-view">
           <Routes>
             <Route path="account" element={<AccountPage />} />
-            <Route path="order" element={<OrderPage />} />
+            <Route path="orders" element={<OrderPage />} />
             <Route path="default" element={<DefaultPage />} />
           </Routes>
         </section>

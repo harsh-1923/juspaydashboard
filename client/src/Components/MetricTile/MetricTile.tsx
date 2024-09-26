@@ -7,27 +7,29 @@ interface MetricTileProps {
   value: number;
   percentageChange: number;
   title: string;
-  currency?: string;
+  unitType?: string;
+  type?: string;
 }
 
 const MetricTile: React.FC<MetricTileProps> = ({
   value,
   percentageChange,
   title,
-  currency,
+  unitType,
+  type = "1",
 }) => {
   const isPositive = percentageChange >= 0;
-  // Calculate absolute value before formatting
   const absolutePercentageChange = Math.abs(percentageChange);
   const formattedPercentageChange = absolutePercentageChange.toFixed(2);
 
   return (
-    <div className="metric-tile-wrapper">
+    <div className={`metric-tile-wrapper tile-style-${type}`}>
       <h3 className="metric-tile-title">{title}</h3>
       <div className="metric-tile-details-wrapper">
         <h3 className="metric-tile-value">
-          {currency}
+          {unitType && unitType !== "%" && unitType}
           {value.toLocaleString()}
+          {unitType && unitType === "%" && unitType}
         </h3>
         <div className="metric-tile-percentage-wrapper">
           <p
@@ -41,9 +43,12 @@ const MetricTile: React.FC<MetricTileProps> = ({
             %
           </p>
           {isPositive ? (
-            <TrendUp aria-label="Trend up icon" />
+            <TrendUp aria-label="Trend up icon" themeSwitch={type === "2"} />
           ) : (
-            <TrendDown aria-label="Trend down icon" />
+            <TrendDown
+              aria-label="Trend down icon"
+              themeSwitch={type === "2"}
+            />
           )}
         </div>
       </div>

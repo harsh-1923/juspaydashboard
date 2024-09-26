@@ -9,12 +9,18 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import "./DashboardInfobar.css";
 
 const DashboardInfobar: React.FC = () => {
-  const { dashboardSettings, setDashboardSettings } = useDashboardContext(); // Get the context values
+  const { dashboardSettings, setDashboardSettings } = useDashboardContext();
 
   const toggleInfoPannel = () => {
     setDashboardSettings({
       ...dashboardSettings,
-      showInfoPannel: !dashboardSettings.showInfoPannel, // Toggle the value
+      showInfoPannel: !dashboardSettings.showInfoPannel,
+    });
+  };
+  const toggleSidebar = () => {
+    setDashboardSettings({
+      ...dashboardSettings,
+      showSideBar: !dashboardSettings.showSideBar,
     });
   };
   return (
@@ -23,6 +29,7 @@ const DashboardInfobar: React.FC = () => {
         <button
           className="dashboard-infobar-button"
           aria-label="Toggle Sidebar"
+          onClick={() => toggleSidebar()}
         >
           <Sidebar />
         </button>

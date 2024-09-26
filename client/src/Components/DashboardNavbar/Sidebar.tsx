@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import UserDetails from "../UserDetails/UserDetails";
 import DirectoryView from "../DirectoryView/DirectoryView";
@@ -11,6 +11,7 @@ import Default from "../IconSet/Default";
 import Ecommerce from "../IconSet/Ecommerce";
 import Projects from "../IconSet/Projects";
 import OnlineCourses from "../IconSet/OnlineCourses";
+import Order from "../IconSet/Order";
 
 interface SubItem {
   name: string;
@@ -21,6 +22,7 @@ interface DirectoryItem {
   name: string;
   icon: JSX.Element;
   subs: SubItem[];
+  link?: string;
 }
 
 const pageDirectory: DirectoryItem[] = [
@@ -38,45 +40,83 @@ const pageDirectory: DirectoryItem[] = [
   {
     name: "Account",
     icon: <Account />,
-    subs: [],
+    subs: [
+      { name: "Account 1", link: "" },
+      { name: "Account 2", link: "" },
+      { name: "Account 3", link: "" },
+    ],
   },
   {
     name: "Corporate",
     icon: <Corporate />,
-    subs: [],
+    subs: [
+      { name: "Corporate 1", link: "" },
+      { name: "Corporate 2", link: "" },
+      { name: "Corporate 3", link: "" },
+    ],
   },
   {
     name: "Blog",
     icon: <Blog />,
-    subs: [],
+    subs: [
+      { name: "Blog 1", link: "" },
+      { name: "Blog 2", link: "" },
+      { name: "Blog 3", link: "" },
+    ],
   },
   {
     name: "Social",
     icon: <Social />,
-    subs: [],
+    subs: [
+      { name: "Social 1", link: "" },
+      { name: "Social 2", link: "" },
+      { name: "Social 3", link: "" },
+    ],
   },
 ];
 
-const dir: DirectoryItem[] = [
+const dashboardDirectory: DirectoryItem[] = [
   {
     name: "Default",
     icon: <Default />,
+    link: "/default",
+    subs: [],
+  },
+  {
+    name: "Orders",
+    icon: <Order />,
+    link: "/orders",
     subs: [],
   },
   {
     name: "eCommerce",
     icon: <Ecommerce />,
-    subs: [],
+    link: "/ecommerce",
+    subs: [
+      { name: "Ecommerce 1", link: "" },
+      { name: "Ecommerce 2", link: "" },
+      { name: "Ecommerce 3", link: "" },
+    ],
   },
   {
     name: "Projects",
     icon: <Projects />,
-    subs: [],
+    link: "/projects",
+    subs: [
+      { name: "Projects 1", link: "" },
+      { name: "Projects 2", link: "" },
+      { name: "Projects 3", link: "" },
+    ],
   },
   {
     name: "Online Courses",
     icon: <OnlineCourses />,
-    subs: [],
+    link: "/online-courses",
+    subs: [
+      { name: "Courses 1", link: "" },
+      { name: "Courses 2", link: "" },
+      { name: "Courses 3", link: "" },
+    ],
   },
 ];
 
@@ -84,16 +124,16 @@ const DashboardNavbar = () => {
   return (
     <nav className="sidebar-wrapper">
       <UserDetails />
-      <Link to="/account">Account</Link>
+      {/* <Link to="/account">Account</Link>
       <Link to="/default">Default</Link>
-      <Link to="/order">Order</Link>
+      <Link to="/order">Order</Link> */}
 
       <div className="sidebar-dir-wrapper">
         <div className="sidebar-dir-header">
           <h2>Dashboards</h2>
         </div>
 
-        <DirectoryView directory={dir} />
+        <DirectoryView directory={dashboardDirectory} />
       </div>
       <div className="sidebar-dir-wrapper">
         <div className="sidebar-dir-header">

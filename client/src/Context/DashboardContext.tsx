@@ -7,11 +7,13 @@ interface DashboardContextType {
 
 interface DashboardSettings {
   showInfoPannel: boolean;
+  showSideBar: boolean;
 }
 
 const defaultContextValue: DashboardContextType = {
   dashboardSettings: {
     showInfoPannel: true,
+    showSideBar: true,
   },
   setDashboardSettings: () => {},
 };
@@ -23,6 +25,7 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   const [dashboardSettings, setDashboardSettings] = useState<DashboardSettings>(
     {
       showInfoPannel: true,
+      showSideBar: true,
     }
   );
 
@@ -38,7 +41,6 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Custom hook to use the DashboardContext
 export const useDashboardContext = (): DashboardContextType => {
   return useContext(DashboardContext);
 };

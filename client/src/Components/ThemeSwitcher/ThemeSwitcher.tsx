@@ -6,21 +6,25 @@ const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
-      onClick={toggleTheme}
-      aria-label="Switch Theme"
-      className="dashborad-infobar-button"
-    >
+    <div aria-label="Switch Theme" className="dashborad-infobar-button">
       {theme === "light" ? (
-        <div className="dashboard-infobar-button" aria-label="Toggle Dark Mode">
+        <button
+          className="dashboard-infobar-button"
+          aria-label="Toggle Dark Mode"
+          onClick={toggleTheme}
+        >
           <Moon />
-        </div>
+        </button>
       ) : (
-        <div className="dashboard-infobar-button" aria-label="Toggle Dark Mode">
+        <button
+          className="dashboard-infobar-button"
+          aria-label="Toggle Dark Mode"
+          onClick={toggleTheme}
+        >
           <Sun />
-        </div>
+        </button>
       )}
-    </button>
+    </div>
   );
 };
 

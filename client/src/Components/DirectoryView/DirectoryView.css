@@ -1,6 +1,7 @@
 .directory-root {
   width: 100%;
   overflow: hidden;
+  --directory-animation-duration: 300ms;
 }
 
 .directory-folder {
@@ -12,6 +13,30 @@
   cursor: pointer;
   height: 32px;
   padding: 4px;
+  background-color: inherit;
+  border-radius: var(--gap-md);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.directory-folder[data-dir-active="true"] {
+  background: var(--black-5, rgba(28, 28, 28, 0.05));
+}
+.dark .directory-folder[data-dir-active="true"] {
+  background: var(--black-5, rgba(255, 255, 255, 0.1));
+}
+
+.directory-folder:hover,
+:focus-visible {
+  background: var(--black-5, rgba(28, 28, 28, 0.05));
+}
+
+.dark .directory-folder:hover,
+:focus-visible {
+  background: var(--black-5, rgba(255, 255, 255, 0.1));
 }
 
 .directory-folder > div {
@@ -19,6 +44,14 @@
   align-items: center;
   justify-content: center;
   width: 20px;
+}
+
+.directory-chevron-wrapper {
+  transition: transform var(--directory-animation-duration)
+    cubic-bezier(0.87, 0, 0.13, 1);
+}
+.directory-folder[data-state="open"] > .directory-chevron-wrapper {
+  transform: rotate(90deg);
 }
 
 .directory-folder-details {
@@ -53,9 +86,9 @@
 }
 
 .directory-content[data-state="open"] {
-  animation: slideDown 300ms ease-out;
+  animation: slideDown var(--directory-animation-duration) ease-out;
 }
 
 .directory-content[data-state="closed"] {
-  animation: slideUp 300ms ease-out;
+  animation: slideUp var(--directory-animation-duration) ease-out;
 }
