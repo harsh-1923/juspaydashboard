@@ -17,7 +17,7 @@ const UserAvatar = ({
   return (
     <Avatar.Root
       className="user-avatar-wrapper"
-      style={{ width: size, height: size }}
+      style={{ width: size, height: size, userSelect: "none" }}
     >
       <Avatar.Image
         className="user-avatar"

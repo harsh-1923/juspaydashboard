@@ -1,9 +1,7 @@
 import React from "react";
 import { formatElapsedTime } from "../../utils/utils";
-import Bug from "../IconSet/Bug";
-import Subscribe from "../IconSet/Subscribe";
-import User from "../IconSet/User";
 import "./Notifications.css";
+import { Bug, Subscribe, User } from "../IconSet";
 
 interface NotificationData {
   title: string;

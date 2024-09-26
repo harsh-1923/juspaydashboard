@@ -1,17 +1,18 @@
-// import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import UserDetails from "../UserDetails/UserDetails";
 import DirectoryView from "../DirectoryView/DirectoryView";
-import Account from "../IconSet/Account";
-import Corporate from "../IconSet/Corporate";
-import Blog from "../IconSet/Blog";
-import Social from "../IconSet/Social";
-import UserProfile from "../IconSet/UserProfile";
-import Default from "../IconSet/Default";
-import Ecommerce from "../IconSet/Ecommerce";
-import Projects from "../IconSet/Projects";
-import OnlineCourses from "../IconSet/OnlineCourses";
-import Order from "../IconSet/Order";
+import {
+  Account,
+  Blog,
+  Corporate,
+  Default,
+  Ecommerce,
+  OnlineCourses,
+  Order,
+  Projects,
+  Social,
+  UserProfile,
+} from "../IconSet";
 
 interface SubItem {
   name: string;
@@ -124,9 +125,6 @@ const DashboardNavbar = () => {
   return (
     <nav className="sidebar-wrapper">
       <UserDetails />
-      {/* <Link to="/account">Account</Link>
-      <Link to="/default">Default</Link>
-      <Link to="/order">Order</Link> */}
 
       <div className="sidebar-dir-wrapper">
         <div className="sidebar-dir-header">

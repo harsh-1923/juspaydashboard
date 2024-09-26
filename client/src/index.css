@@ -35,6 +35,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+::selection {
+  background-color: rgba(209, 209, 209, 0.794);
+}
+
+.dark ::selection {
+  color: white;
+  background-color: rgba(177, 216, 255, 0.37);
+}
+
 body {
   --info-pannel-border-color: rgba(28, 28, 28, 0.1);
   transition: background-color 0.3s, color 0.3s;

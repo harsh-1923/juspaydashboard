@@ -24,7 +24,7 @@ interface DirectoryViewProps {
 
 const DirectoryView: React.FC<DirectoryViewProps> = ({
   directory,
-  singleView = true,
+  singleView = false,
 }) => {
   const navigate = useNavigate();
 

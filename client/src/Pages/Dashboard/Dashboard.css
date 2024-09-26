@@ -1,5 +1,7 @@
 .dashboard-wrapper {
   width: 100vw;
+  max-width: 100vw;
+  overflow: auto;
   display: flex;
   height: 100vh;
 }
