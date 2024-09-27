@@ -43,7 +43,7 @@ const RevenueDetails = () => {
             <span>Previous Week $50,100</span>
           </div>
         </header>
-        <div>
+        <div className="mt-4">
           <DoubleLineChart />
         </div>
       </div>

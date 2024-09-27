@@ -87,7 +87,6 @@ const MetricDetails = () => {
         {/* <div className="max-w-[300px] mx-auto">
           <BarChartStacked />
         </div> */}
-
         <BarChartStacked />
       </section>
     </div>

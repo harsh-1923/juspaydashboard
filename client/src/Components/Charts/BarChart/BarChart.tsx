@@ -1,6 +1,6 @@
 "use client";
 
-import { Bar, BarChart } from "recharts";
+import { Bar, BarChart, YAxis, XAxis } from "recharts";
 
 import { Card, CardContent } from "../../ui/card";
 import {
@@ -11,12 +11,12 @@ import {
 } from "../../ui/chart";
 
 const chartData = [
-  { date: "2024-07-15", projected: 450, actual: 300 },
-  { date: "2024-07-16", projected: 380, actual: 420 },
-  { date: "2024-07-17", projected: 520, actual: 120 },
-  { date: "2024-07-18", projected: 140, actual: 550 },
-  { date: "2024-07-19", projected: 600, actual: 350 },
-  { date: "2024-07-20", projected: 480, actual: 400 },
+  { date: "Jan", projected: 450, actual: 300 },
+  { date: "Feb", projected: 380, actual: 420 },
+  { date: "Mar", projected: 520, actual: 120 },
+  { date: "Apr", projected: 140, actual: 550 },
+  { date: "May", projected: 600, actual: 350 },
+  { date: "Jun", projected: 480, actual: 400 },
 ];
 
 const chartConfig = {
@@ -32,10 +32,25 @@ const chartConfig = {
 
 export function BarChartStacked() {
   return (
-    <Card className="bg-inherit rounded-none shadow-none border-none max-w-[300px]">
+    <Card className="bg-inherit rounded-none shadow-none border-none max-w-[300px] dark:bg-[#rgb(40,40,40)]">
       <CardContent className="p-0">
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(value) => `${value}k`}
+              width={40}
+              tickMargin={8}
+            />
+            <XAxis
+              dataKey={"date"}
+              axisLine={false}
+              tickLine={false}
+              // tickFormatter={(value) => `${value}k`}
+              width={40}
+              tickMargin={8}
+            />
             <Bar
               dataKey="projected"
               stackId="a"
@@ -74,9 +89,9 @@ export function BarChartStacked() {
                       </div>
                       {index === 1 && (
                         <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
-                          Deficit
+                          Status
                           <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                            {item.payload.projected - item.payload.actual}
+                            {item.payload.actual - item.payload.projected}
                             <span className="font-normal text-muted-foreground">
                               k
                             </span>
