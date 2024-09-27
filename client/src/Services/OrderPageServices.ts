@@ -71,7 +71,7 @@ const orderDetails: Order[] = [
     orderID: "#CM987",
     contact: {
       username: "Natali Craig",
-      profileUrl: "/images/ContactImages/DrewCano.png",
+      profileUrl: "/images/ContactImages/NataliCraig.png",
     },
     project: "Landing Page",
     address: "Meadow Lane Oakland",
@@ -82,7 +82,7 @@ const orderDetails: Order[] = [
     orderID: "#CM988",
     contact: {
       username: "Natali Craig",
-      profileUrl: "/images/ContactImages/DrewCano.png",
+      profileUrl: "/images/ContactImages/NataliCraig.png",
     },
     project: "Landing Page",
     address: "Meadow Lane Oakland",
@@ -95,7 +95,7 @@ const orderDetails: Order[] = [
       username: "Natali Craig",
       profileUrl: "/images/ContactImages/DrewCano.png",
     },
-    project: "Landing Page",
+    project: "Customer Support",
     address: "Meadow Lane Oakland",
     timestamp: "2024-09-18T12:05:30Z",
     status: Status.InProgress,
@@ -103,8 +103,8 @@ const orderDetails: Order[] = [
   {
     orderID: "#CM990",
     contact: {
-      username: "Natali Craig",
-      profileUrl: "/images/ContactImages/DrewCano.png",
+      username: "Orlando Diggs",
+      profileUrl: "/images/ContactImages/OrlandoDiggs.png",
     },
     project: "Landing Page",
     address: "Meadow Lane Oakland",

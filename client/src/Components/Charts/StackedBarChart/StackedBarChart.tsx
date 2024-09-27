@@ -1,7 +1,6 @@
 "use client";
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { Card, CardContent } from "../../ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -31,44 +30,35 @@ const chartConfig = {
 
 export function StackedBarChart() {
   return (
-    <Card className="shadow-none border-none bg-inherit rounded-none dark:bg-[rgb(40,40,40)]">
-      <CardContent className="p-0">
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} stroke="#e0e0e0" />
+    <ChartContainer config={chartConfig}>
+      <BarChart accessibilityLayer data={chartData}>
+        <CartesianGrid vertical={false} stroke="#e0e0e0" />
 
-            <YAxis
-              tickLine={false}
-              axisLine={false}
-              tickMargin={10}
-              width={30}
-            />
+        <YAxis tickLine={false} axisLine={false} tickMargin={10} width={30} />
 
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          tickMargin={10}
+          axisLine={false}
+          tickFormatter={(value) => value.slice(0, 3)}
+        />
 
-            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+        <ChartTooltip content={<ChartTooltipContent hideLabel />} />
 
-            <Bar
-              dataKey="projections"
-              stackId="a"
-              fill="var(--color-projections)"
-              radius={[0, 0, 0, 0]}
-            />
-            <Bar
-              dataKey="actuals"
-              stackId="a"
-              fill="var(--color-actuals)"
-              radius={[4, 4, 0, 0]}
-            />
-          </BarChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+        <Bar
+          dataKey="projections"
+          stackId="a"
+          fill="var(--color-projections)"
+          radius={[0, 0, 0, 0]}
+        />
+        <Bar
+          dataKey="actuals"
+          stackId="a"
+          fill="var(--color-actuals)"
+          radius={[4, 4, 0, 0]}
+        />
+      </BarChart>
+    </ChartContainer>
   );
 }

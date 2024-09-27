@@ -1,6 +1,6 @@
 import MetricTile from "@/Components/MetricTile/MetricTile";
 import "./MetricDetails.css";
-import { StackedBarChart } from "@/Components/Charts/StackedBarChart/StackedBarChart";
+import { BarChartStacked } from "@/Components/Charts/BarChart/BarChart";
 
 type MetricData = {
   value: number;
@@ -80,8 +80,12 @@ const MetricDetails = () => {
           <h2>Projections vs Actuals</h2>
         </header>
 
-        <div className="max-w-[320px] mx-auto mt-4">
+        {/* <div className="max-w-[320px] mx-auto mt-4">
           <StackedBarChart />
+        </div> */}
+
+        <div className="max-w-[300px] mx-auto">
+          <BarChartStacked />
         </div>
       </section>
     </div>

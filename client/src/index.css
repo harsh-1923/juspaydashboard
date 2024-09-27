@@ -46,7 +46,7 @@
 
 body {
   --info-pannel-border-color: rgba(28, 28, 28, 0.1);
-  /* transition: background-color 0.3s, color 0.3s; */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 [data-theme="dark"] {
