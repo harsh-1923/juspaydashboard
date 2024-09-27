@@ -2,13 +2,7 @@
 
 import { Bar, BarChart } from "recharts";
 
-import {
-  Card,
-  CardContent,
-  //   CardDescription,
-  //   CardHeader,
-  //   CardTitle,
-} from "../../ui/card";
+import { Card, CardContent } from "../../ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -57,6 +51,7 @@ export function BarChartStacked() {
             <ChartTooltip
               content={
                 <ChartTooltipContent
+                  active={false}
                   hideLabel
                   className="w-[180px]"
                   formatter={(value, name, item, index) => (

@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Contact } from "../../Components/Contacts/Contacts";
 import Calendar from "../../Components/IconSet/Calendar";
 import { formatElapsedTime } from "../../utils/utils";
-import "./OrderPage.css";
 import { toast } from "sonner";
 import { getOrderList } from "@/Services/OrderPageServices";
 import { StatusParserProps } from "./OrderTypes";
 import { Filter, Plus, Sort } from "@/Components/IconSet";
+import "./OrderPage.css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const OrderPage = () => {
   return (
@@ -27,6 +28,10 @@ const OrderTable = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // Show 10 entries per page
+
+  const totalPages = Math.ceil(orderDetails.length / itemsPerPage);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,7 +70,7 @@ const OrderTable = () => {
     );
   });
 
-  const currentOrders = [...filteredOrderDetails].sort((a, b) => {
+  const sortedOrders = [...filteredOrderDetails].sort((a, b) => {
     const dateA = new Date(a.timestamp).getTime();
     const dateB = new Date(b.timestamp).getTime();
 
@@ -75,6 +80,29 @@ const OrderTable = () => {
       return dateB - dateA;
     }
   });
+
+  // Pagination logic
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentOrders = sortedOrders.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handlePageClick = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+  };
 
   return (
     <>
@@ -169,6 +197,40 @@ const OrderTable = () => {
           ))}
         </tbody>
       </table>
+
+      <div className="pagination-controls">
+        <button
+          className="pagination-button"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          <ChevronLeft size={16} />
+        </button>
+
+        {Array(totalPages)
+          .fill(null)
+          .map((_, index) => {
+            const pageIndex = index + 1;
+            return (
+              <button
+                key={pageIndex}
+                className="pagination-button"
+                onClick={() => handlePageClick(pageIndex)}
+                data-page-active={pageIndex === currentPage ? "true" : "false"}
+              >
+                {pageIndex}
+              </button>
+            );
+          })}
+
+        <button
+          className="pagination-button"
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        >
+          <ChevronRight size={16} />
+        </button>
+      </div>
     </>
   );
 };

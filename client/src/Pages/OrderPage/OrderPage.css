@@ -59,7 +59,7 @@ td {
 }
 
 .order-table-checkbox:checked {
-  background-color: rgba(28, 28, 28, 1);
+  background-color: rgb(71, 71, 71);
 }
 
 .dark .order-table-checkbox:checked {
@@ -136,4 +136,26 @@ td {
 
 .dark .order-search-form > input {
   background: var(--white-40, rgba(28, 28, 28, 0.4));
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.pagination-button {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--gap-md);
+}
+
+.pagination-button[data-page-active="true"] {
+  background: var(--black-5, rgba(28, 28, 28, 0.05));
+}
+
+.pagination-button:hover,
+:focus-visible {
+  background: var(--black-5, rgba(28, 28, 28, 0.05));
 }
