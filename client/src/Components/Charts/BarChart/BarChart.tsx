@@ -41,12 +41,6 @@ const chartConfig = {
 export function BarChartStacked() {
   return (
     <Card className="bg-inherit border-none rounded-none shadow-none">
-      {/* <CardHeader>
-        <CardTitle>Tooltip - Advanced</CardTitle>
-        <CardDescription>
-          Tooltip with custom formatter and total.
-        </CardDescription>
-      </CardHeader> */}
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
