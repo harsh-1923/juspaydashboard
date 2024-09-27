@@ -1,11 +1,18 @@
+"use client";
+
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
+import { Card, CardContent } from "../../ui/card";
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
+
+export const description = "A stacked bar chart with a legend";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -19,49 +26,45 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "rgba(168, 197, 218, 1)",
+    color: "hsl(var(--chart-1))",
   },
   mobile: {
     label: "Mobile",
-    color: "rgb(226,244,255)",
+    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
 
-const StackedBarChart = () => {
+export function StackedBarChart() {
   return (
-    <ChartContainer config={chartConfig} className="">
-      <BarChart accessibilityLayer data={chartData}>
-        <CartesianGrid vertical={false} />
-        <XAxis
-          dataKey="month"
-          tickLine={false}
-          tickMargin={10}
-          axisLine={false}
-          tickFormatter={(value) => value.slice(0, 3)}
-        />
-        {/* <YAxis
-          axisLine={false}
-          tickLine={false}
-          tick={{ fill: "#9CA3AF", fontSize: 14 }}
-          tickFormatter={(value) => `${value}M`}
-        /> */}
-        <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-        <Bar
-          dataKey="desktop"
-          stackId="a"
-          fill="var(--color-desktop)"
-          radius={[0, 0, 4, 4]}
-        />
-
-        <Bar
-          dataKey="mobile"
-          stackId="a"
-          fill="var(--color-mobile)"
-          radius={[4, 4, 0, 0]}
-        />
-      </BarChart>
-    </ChartContainer>
+    <Card className="bg-inherit border-none shadow-none">
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+            <ChartLegend content={<ChartLegendContent />} />
+            <Bar
+              dataKey="desktop"
+              stackId="a"
+              fill="var(--color-desktop)"
+              radius={[0, 0, 4, 4]}
+            />
+            <Bar
+              dataKey="mobile"
+              stackId="a"
+              fill="var(--color-mobile)"
+              radius={[4, 4, 0, 0]}
+            />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   );
-};
-
-export default StackedBarChart;
+}
