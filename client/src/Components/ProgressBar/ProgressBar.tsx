@@ -10,7 +10,7 @@ const ProgressBar = ({ val, totalVal }: ProgressBarProps) => {
   return (
     <div
       style={{
-        backgroundColor: "rgba(28, 28, 28, 0.1)", // Light grey background for the bar
+        backgroundColor: "rgba(1, 1, 1, 0.2)", // Light grey background for the bar
         borderRadius: "5px", // Rounded corners for the progress bar
         height: "2px", // Default height for the progress bar
         width: "100%", // Full width container

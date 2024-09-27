@@ -1,18 +1,13 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Card, CardContent } from "../../ui/card";
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
-
-export const description = "A stacked bar chart with a legend";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -36,11 +31,20 @@ const chartConfig = {
 
 export function StackedBarChart() {
   return (
-    <Card className="bg-inherit border-none shadow-none">
+    <Card className="shadow-none border-none bg-inherit">
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
+
+            {/* Add YAxis */}
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={10}
+              width={30} // Adjusts the width of the Y-axis area
+            />
+
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -48,8 +52,9 @@ export function StackedBarChart() {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
+
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-            <ChartLegend content={<ChartLegendContent />} />
+
             <Bar
               dataKey="desktop"
               stackId="a"

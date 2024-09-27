@@ -1,0 +1,34 @@
+.default-page-content-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.default-page-quick-metrics-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.default-page-quick-metrics {
+  display: flex;
+  gap: 28px;
+}
+
+.projection-vs-actuals-chart-wrapper {
+  flex-grow: 1;
+  height: 252px;
+}
+
+.projection-vs-actuals-header {
+  height: 20px;
+}
+
+.projection-vs-actuals-header > h2 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  color: var(--black-100, rgba(28, 28, 28, 1));
+}
