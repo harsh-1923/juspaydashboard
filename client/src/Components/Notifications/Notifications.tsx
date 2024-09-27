@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatElapsedTime } from "../../utils/utils";
 import "./Notifications.css";
 import { Bug, Subscribe, User } from "../IconSet";
+import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 interface NotificationData {
   title: string;
@@ -13,9 +15,10 @@ interface NotificationProps {
   icon: React.ReactNode;
   timestamp: string;
   title: string;
+  isNew: boolean; // New prop to indicate if the notification is new
 }
 
-const notifications: NotificationData[] = [
+const initialNotifications: NotificationData[] = [
   {
     title: "You have a bug that needs resolution",
     timestamp: new Date().toISOString(),
@@ -34,24 +37,61 @@ const notifications: NotificationData[] = [
 ];
 
 const Notifications: React.FC = () => {
+  const [notifications, setNotifications] =
+    useState<NotificationData[]>(initialNotifications);
+  const [newNotificationTimestamp, setNewNotificationTimestamp] = useState<
+    string | null
+  >(null);
+
+  const addNotification = () => {
+    const newActivity: NotificationData = {
+      title: "Natali subscribed to you",
+      timestamp: new Date().toISOString(),
+      icon: <Subscribe />,
+    };
+    setNotifications([newActivity, ...notifications]);
+    setNewNotificationTimestamp(newActivity.timestamp);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      addNotification();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (newNotificationTimestamp) {
+      const timer = setTimeout(() => {
+        setNewNotificationTimestamp(null);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [newNotificationTimestamp]);
+
   return (
     <section
       className="info-group-wrapper"
       aria-labelledby="notifications-heading"
     >
       <header className="info-group-header">
-        <h2 id="notifications-heading">Notifications</h2>
+        <h2 id="notifications-heading ">Notifications</h2>
       </header>
-      <ul role="list" className="info-group-list">
-        {notifications.map((notification, index) => (
-          <Notification
-            key={index}
-            title={notification.title}
-            icon={notification.icon}
-            timestamp={notification.timestamp}
-          />
-        ))}
-      </ul>
+      <AnimatePresence initial={false} mode="popLayout">
+        <ul role="list" className="info-group-list">
+          {notifications.map((notification) => (
+            <Notification
+              key={notification.timestamp}
+              title={notification.title}
+              icon={notification.icon}
+              timestamp={notification.timestamp}
+              isNew={notification.timestamp === newNotificationTimestamp} // Pass isNew prop
+            />
+          ))}
+        </ul>
+      </AnimatePresence>
     </section>
   );
 };
@@ -60,17 +100,32 @@ const Notification: React.FC<NotificationProps> = ({
   icon,
   timestamp,
   title,
+  isNew,
 }) => {
   return (
-    <li className="notification-wrapper" role="listitem">
+    <motion.li
+      initial={{ scale: 0.9, opacity: 0, y: -10 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      transition={{ duration: 1, type: "spring", bounce: 0 }}
+      className="notification-wrapper"
+      role="listitem"
+      onClick={() => toast("Notification Expanded")}
+    >
       <div className="notification-icon-wrapper" aria-hidden="true">
         {icon}
       </div>
       <div className="notification-details">
-        <p className="notification-title ellipsis-clip">{title}</p>
+        {/* Add the shimmer-effect class if isNew is true */}
+        <p
+          className={`notification-title ellipsis-clip ${
+            isNew ? "shimmer-effect" : ""
+          }`}
+        >
+          {title}
+        </p>
         <p className="notification-timestamp">{formatElapsedTime(timestamp)}</p>
       </div>
-    </li>
+    </motion.li>
   );
 };
 

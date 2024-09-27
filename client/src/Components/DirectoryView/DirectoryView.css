@@ -20,6 +20,8 @@
   line-height: 20px;
   text-align: left;
   margin-bottom: 4px;
+  outline: none !important;
+  border: none !important;
 }
 
 .directory-folder[data-dir-active="true"] {
