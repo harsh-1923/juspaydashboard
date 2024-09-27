@@ -108,6 +108,11 @@ button:disabled {
   background-color: inherit !important;
 }
 
+form:focus-within {
+  outline: 1px solid rgb(126, 188, 239);
+  outline-offset: 1px;
+}
+
 .dark .svg-icon {
   fill: white;
 }

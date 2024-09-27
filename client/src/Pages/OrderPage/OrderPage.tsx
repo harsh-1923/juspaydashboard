@@ -247,10 +247,6 @@ const StatusParser = ({ status }: StatusParserProps) => {
         gap: "var(--gap-xs)",
       }}
     >
-      <div
-        className="status-indicator"
-        style={{ backgroundColor: color }}
-      ></div>
       {text}
     </div>
   );

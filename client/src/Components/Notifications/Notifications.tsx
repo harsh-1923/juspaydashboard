@@ -56,7 +56,7 @@ const Notifications: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       addNotification();
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
