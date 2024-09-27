@@ -54,3 +54,22 @@ td {
 .dark .default-page-sales-chart-header > h2 {
   color: var(--black-100, rgba(255, 255, 255, 1));
 }
+
+.sales-chart-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  align-items: start;
+}
+
+.sales-chart-details > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sales-chart-details > div > p {
+  font-size: 12px;
+}

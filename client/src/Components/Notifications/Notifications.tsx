@@ -109,7 +109,9 @@ const Notification: React.FC<NotificationProps> = ({
       transition={{ duration: 1, type: "spring", bounce: 0 }}
       className="notification-wrapper"
       role="listitem"
-      onClick={() => toast("Notification Expanded")}
+      onClick={() =>
+        toast("Notification Expanded. Feature under implementation...")
+      }
     >
       <div className="notification-icon-wrapper" aria-hidden="true">
         {icon}

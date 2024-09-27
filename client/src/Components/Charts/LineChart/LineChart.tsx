@@ -9,26 +9,25 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
-
-export const description = "A multiple line chart";
+import "./LineChart.css";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", projected: 186, actual: 80 },
+  { month: "February", projected: 305, actual: 200 },
+  { month: "March", projected: 237, actual: 120 },
+  { month: "April", projected: 73, actual: 190 },
+  { month: "May", projected: 209, actual: 130 },
+  { month: "June", projected: 214, actual: 140 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+  projected: {
+    label: "projected",
+    color: "var(--line-chart-projected)",
   },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
+  actual: {
+    label: "actual",
+    color: "var(--line-chart-actual)",
   },
 } satisfies ChartConfig;
 
@@ -55,16 +54,16 @@ export function DoubleLineChart() {
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
-              dataKey="desktop"
+              dataKey="projected"
               type="monotone"
-              stroke="var(--color-desktop)"
+              stroke="var(--color-projected)"
               strokeWidth={2}
               dot={false}
             />
             <Line
-              dataKey="mobile"
+              dataKey="actual"
               type="monotone"
-              stroke="var(--color-mobile)"
+              stroke="var(--color-actual)"
               strokeWidth={2}
               dot={false}
             />

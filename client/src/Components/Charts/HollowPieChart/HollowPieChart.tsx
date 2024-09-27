@@ -11,11 +11,13 @@ import {
   ChartTooltipContent,
 } from "../../ui/chart";
 
+import "./HollowPieChart.css";
+
 const chartData = [
-  { category: "Direct", amount: 300.56, fill: "hsl(var(--chart-1))" },
-  { category: "Affiliate", amount: 135.18, fill: "hsl(var(--chart-2))" },
-  { category: "Sponsored", amount: 154.02, fill: "hsl(var(--chart-3))" },
-  { category: "E-mail", amount: 48.96, fill: "hsl(var(--chart-4))" },
+  { category: "Direct", amount: 300.56, fill: "var(--direct-pie-color)" },
+  { category: "Affiliate", amount: 135.18, fill: "rgba(177, 227, 255, 1)" },
+  { category: "Sponsored", amount: 154.02, fill: "rgba(149, 164, 252, 1)" },
+  { category: "E-mail", amount: 48.96, fill: "rgba(186, 237, 189, 1)" },
 ];
 
 const chartConfig = {

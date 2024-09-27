@@ -10,39 +10,38 @@ import {
 } from "../../ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", projections: 186, actuals: 80 },
+  { month: "February", projections: 305, actuals: 200 },
+  { month: "March", projections: 237, actuals: 120 },
+  { month: "April", projections: 73, actuals: 190 },
+  { month: "May", projections: 209, actuals: 130 },
+  { month: "June", projections: 214, actuals: 140 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+  projections: {
+    label: "Projections",
+    color: "rgba(168, 197, 218, 1)",
   },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
+  actuals: {
+    label: "Actuals",
+    color: "rgb(176,227,255)",
   },
 } satisfies ChartConfig;
 
 export function StackedBarChart() {
   return (
-    <Card className="shadow-none border-none bg-inherit">
-      <CardContent>
+    <Card className="shadow-none border-none bg-inherit rounded-none dark:bg-[rgb(40,40,40)]">
+      <CardContent className="p-0">
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={false} stroke="#e0e0e0" />
 
-            {/* Add YAxis */}
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={10}
-              width={30} // Adjusts the width of the Y-axis area
+              width={30}
             />
 
             <XAxis
@@ -56,15 +55,15 @@ export function StackedBarChart() {
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
 
             <Bar
-              dataKey="desktop"
+              dataKey="projections"
               stackId="a"
-              fill="var(--color-desktop)"
-              radius={[0, 0, 4, 4]}
+              fill="var(--color-projections)"
+              radius={[0, 0, 0, 0]}
             />
             <Bar
-              dataKey="mobile"
+              dataKey="actuals"
               stackId="a"
-              fill="var(--color-mobile)"
+              fill="var(--color-actuals)"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>

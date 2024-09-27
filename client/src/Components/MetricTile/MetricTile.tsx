@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TrendUp from "../IconSet/TrendUp";
 import TrendDown from "../IconSet/TrendDown";
 import "./MetricTile.css";
-import { NumberTicker } from "../NumberTicker/NumberTicker";
 
 interface MetricTileProps {
   value: number;
@@ -23,17 +22,13 @@ const MetricTile: React.FC<MetricTileProps> = ({
   const absolutePercentageChange = Math.abs(percentageChange);
   const formattedPercentageChange = absolutePercentageChange.toFixed(2);
 
-  useEffect(() => {
-    console.log("Rendered");
-  }, []);
-
   return (
     <div className={`metric-tile-wrapper tile-style-${type}`}>
       <h3 className="metric-tile-title">{title}</h3>
       <div className="metric-tile-details-wrapper">
         <h3 className="metric-tile-value">
           {unitType && unitType !== "%" && unitType}
-          <NumberTicker endValue={value} />
+          {value.toLocaleString()}
           {unitType && unitType === "%" && unitType}
         </h3>
         <div className="metric-tile-percentage-wrapper">

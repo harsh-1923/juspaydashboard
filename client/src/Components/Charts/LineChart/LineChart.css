@@ -1,0 +1,12 @@
+.light {
+  --line-chart-projected: var(--Primary-Brand, rgba(28, 28, 28, 1));
+  --line-chart-actual: rgba(168, 197, 218, 1);
+  ---grid-line: #e0e0e0;
+}
+
+.dark {
+  --line-chart-projected: var(--Primary-Brand, rgba(198, 199, 248, 1));
+  --line-chart-actual: rgb(218, 233, 243);
+  /* --grid-line: ; */
+  --grid-line: red;
+}

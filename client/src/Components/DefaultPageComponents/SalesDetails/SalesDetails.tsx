@@ -5,7 +5,7 @@ const SalesDetails = () => {
   return (
     <div className="default-page-salesdetails-wrapper">
       <div className="default-page-sale-table-wrapper info-tile">
-        <div className="info-header">
+        <div className="info-header mb-6">
           <h2>Top Selling Products</h2>
         </div>
         <SalesTable />
@@ -16,22 +16,22 @@ const SalesDetails = () => {
         </div>
         <HollowPieChart />
 
-        <div className="w-full flex-col gap-4 items-start">
-          <div className="flex items-center w-full justify-between pb-2">
+        <div className="sales-chart-details">
+          <div>
             <p>Direct</p>
-            <p>Direct</p>
+            <p>$300.56</p>
           </div>
-          <div className="flex items-center w-full justify-between pb-2">
-            <p>Direct</p>
-            <p>Direct</p>
+          <div>
+            <p>Affiliate</p>
+            <p>$138.18</p>
           </div>
-          <div className="flex items-center w-full justify-between pb-2">
-            <p>Direct</p>
-            <p>Direct</p>
+          <div>
+            <p>Sponsored</p>
+            <p>$154.02</p>
           </div>
-          <div className="flex items-center w-full justify-between">
-            <p>Direct</p>
-            <p>Direct</p>
+          <div>
+            <p>E-mail</p>
+            <p>$48.96</p>
           </div>
         </div>
       </div>
